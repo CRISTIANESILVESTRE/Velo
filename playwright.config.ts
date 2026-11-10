@@ -13,12 +13,12 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
 
-// Tempo maximo para cada teste completo (30 segundos por padrao)
- timeout:60_000,
+  // Tempo máximo para cada teste completo (3o segundo é o padrão)
+  timeout: 60_000,
 
-// Tempo Maximo para assertions (toBeVisible(), toHaveText(), 5 Segundos)
-expect:{
-  timeout:5_000 // não vale a pena aumentar pois o teste pode ficar lento o tempo de execução, vale a pena usar o explicito
+  // Tempo máximo para assertions (toBeVisible(), toHaveText()) 5 segundos
+  expect: {
+    timeout: 5_000 // não vale a pena aumentar porque o teste pode ficar lento no tempo de execução, vale a pena usar o time explicito
   },
 
 
@@ -39,16 +39,17 @@ expect:{
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'retain-on-failure',
-  
-  //tempo maximo para ações interativas como Click(), fill()
-  //Quando o valor estiver é 0, herda o tempo limite geral de teste
-  actionTimeout: 5_000,
+    trace: 'on',
 
- //tempo maximo para navegações como goto(), waitforURL()
- //Quando o valor estiver é 0, herda o tempo limite geral de teste 
-  navigationTimeout: 60_000,
-},
+    // Tempo máximo para ações interativas como click(), fill()
+    // Quando o valor é 0, herda o limite do timeout geral do teste
+    actionTimeout: 5_000,
+
+    // Tempo máximo para navegações como goto(), waitForURL()
+    // Quando o valor é 0, herda o limite do timeout geral do teste
+    navigationTimeout: 10_000
+  },
+
   /* Configure projects for major browsers */
   projects: [
     {
