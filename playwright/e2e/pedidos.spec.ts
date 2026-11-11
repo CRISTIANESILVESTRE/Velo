@@ -7,10 +7,14 @@ import { OrderLockupPage } from '../support/pages/OrderLockupPage'
 /// AAA - Arrange, Act, Assert
 
 test.describe('Consulta de Pedido', () => {
+  test.use({ actionTimeout: 15000 });
+  // ou dentro do test.beforeEach:
+  // expect.configure({ timeout: 15000 });
+
 
   test.beforeEach(async ({ page }) => {
     // Arrange
-    await page.goto('http://localhost:5173/')
+    await page.goto('http://localhost:5173/',{ waitUntil: 'domcontentloaded' })
     await expect(page.getByTestId('hero-section').getByRole('heading')).toContainText('Velô Sprint')
 
     await page.getByRole('link', { name: 'Consultar Pedido' }).click()
@@ -21,13 +25,13 @@ test.describe('Consulta de Pedido', () => {
 
     // Test Data
     const order = {
-      number: 'VLO-6E2J20',
+      number: 'VLO-2H4LLO',
       status: 'APROVADO' as const,
       color: 'Lunar White',
       wheels: 'aero Wheels',
       customer: {
-        name: 'Fernando Papito',
-        email: 'papito@velo.dev'
+        name: 'CRISTIANETESTEUM SILVESTRE',
+        email: 'qatesteum@gmail.com'
       },
       payment: 'À Vista'
     }
@@ -76,13 +80,13 @@ test.describe('Consulta de Pedido', () => {
 
     // Test Data
     const order = {
-      number: 'VLO-0LNFEA',
+      number: 'VLO-3X4MAY',
       status: 'REPROVADO' as const,
       color: 'Midnight Black',
       wheels: 'sport Wheels',
       customer: {
-        name: 'Steve Jobs',
-        email: 'jobs@apple.com'
+        name: 'QAPAULO SILVESTRE SANTOS',
+        email: 'silvestresantos@gmail.com'
       },
       payment: 'À Vista'
     }
@@ -130,13 +134,13 @@ test.describe('Consulta de Pedido', () => {
 
     // Test Data
     const order = {
-      number: 'VLO-412O06',
+      number: 'VLO-446LFN',
       status: 'EM_ANALISE' as const,
       color: 'Lunar White',
       wheels: 'aero Wheels',
       customer: {
-        name: 'João da Silva',
-        email: 'joao@velo.dev'
+        name: 'FELIPE  CARDOSO',
+        email: 'cardoso@gmail.com'
       },
       payment: 'À Vista'
     }

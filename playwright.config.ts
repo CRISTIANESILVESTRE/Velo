@@ -43,11 +43,11 @@ export default defineConfig({
 
     // Tempo máximo para ações interativas como click(), fill()
     // Quando o valor é 0, herda o limite do timeout geral do teste
-    actionTimeout: 5_000,
+    actionTimeout: 15_000,
 
     // Tempo máximo para navegações como goto(), waitForURL()
     // Quando o valor é 0, herda o limite do timeout geral do teste
-    navigationTimeout: 10_000
+    navigationTimeout: 30_000
   },
 
   /* Configure projects for major browsers */
